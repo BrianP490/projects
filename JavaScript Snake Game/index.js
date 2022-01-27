@@ -1,4 +1,4 @@
-const canvas = document.getElementById('game'); //refer the canvas to draw on
+const canvas = document.getElementById('game'); //refer the canvas(game) to draw on
 const ctx = canvas.getContext('2d'); //2d context to draw onto the canvas
 
 //class for the snake parts consisting of x and y variables
@@ -45,10 +45,10 @@ function drawGame() {
     clearScreen();  //refresh the screen
 
     checkAppleCollision();  //check if the apple was eaten by the snake
-    drawApple();    //
-    drawSnake();
+    drawApple();    //draw apple function call
+    drawSnake();    //draw snake function call
 
-    drawScore();
+    drawScore();    //draw score function call
 
     setTimeout(drawGame, 1000/speed);   //wait to recall drawGame() and update the game in the next frame in ___ ms delay
 }
@@ -84,7 +84,7 @@ function isGameOver() {
         // Fill with gradient
         ctx.fillStyle = gradient;
 
-        ctx.fillText('Game Over!', canvas.width / 6.5 , canvas.height / 2 );
+        ctx.fillText('Game Over!', canvas.width / 6.5 , canvas.height / 2 ); //position the game over text to be in the middle section of the canvas
     }
     return gameOver;    //return
 }
@@ -97,11 +97,11 @@ function drawScore() {
 //clear the screen
 function clearScreen() {
     ctx.fillStyle = 'black';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillRect(0, 0, canvas.width, canvas.height);//fill the screen with a black rectangle
 }
 //draw the snake
 function drawSnake() {
-    ctx.fillStyle = 'green'
+    ctx.fillStyle = 'green';
     for(let i = 0; i < snakeParts.length; i++) {
         ctx.fillRect(snakeParts[i].x * tileCount, snakeParts[i].y * tileCount, tileSize, tileSize) //fill in a rectangle that resenbles the snake's body
     }
