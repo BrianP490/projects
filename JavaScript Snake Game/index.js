@@ -155,7 +155,7 @@ function keyDown(event) {
         inputsYVelocity = 1;
         inputsXVelocity = 0;
     }
-    //a- left left
+    //a- left key
     if(event.keyCode == 65) {
         if(inputsXVelocity == 1)
             return;
