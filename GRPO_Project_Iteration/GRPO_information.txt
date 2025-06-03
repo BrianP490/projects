@@ -1,0 +1,34 @@
+Goal of Policy Gradient
+The goal is to maximize the expected cumulative reward by directly optimizing the parameters of a policy network (usually a neural network).
+
+
+Why Use Sampled Trajectories + Advantage Instead of Full Expectation?
+
+Theoretical Ideal:
+The policy gradient is defined as an expectation over all possible trajectories. But computing this exactly is intractable — the number of possible trajectories is exponential.
+
+Practical Solution: Monte Carlo Sampling
+Instead, we sample trajectories from the current policy.
+This gives us an unbiased estimate of the gradient.
+It's noisy, but efficient and scalable.
+
+ Why Use a Baseline (Advantage)?
+The advantage function Measures how much better an action is compared to the average and
+Reduces variance in the gradient estimate without introducing bias.
+
+In GRPO/PPO, the gradient becomes:
+∇_θ_J(θ)≈E_τ[∇_θ log(π_θ(a∣s))⋅A(s,a)]
+
+
+On every policy update, you need to generate new samples to utilize and test the policy. This sampling process iterates until a certain cutoff point (e.g. minimal loss acquired, time elapsed, epochs)
+
+
+During the ratio * the advantage,
+
+If the ratio is >1, that means that the new policy is more inclined to take an action than the previous policy. If the Advantage is positive, The model encourages good behavior.
+
+If the ratio is <1, that means that the new policy is less inclined to take an action than the previous policy. If the Advantage is negative, the model discourages bad behavior. 
+
+Learns to do more good actions and less bad actions!!!
+
+We also limit the changes done to the parameters of the policy by taking the minimum between the standard ratio * Advantage and the clipping the same calculation (ratio * Advantage). Then the KL Divergence is subtracted as another form of regularization to prevent too high updates.
