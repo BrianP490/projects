@@ -1,0 +1,11 @@
+# conda create env -f req.yaml
+name: GRPO_env
+channels:
+  - pytorch
+  - defaults
+dependencies:
+  - python=3.10   # 
+  - pytorch   # backbone for building nerual networks
+  - numpy   # library for numerical operations
+  - tqdm    # sleek progress bar
+  - gymnasium-toy_text  # includes Blackjack and other toy_text environments
