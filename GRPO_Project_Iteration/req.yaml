@@ -5,12 +5,14 @@
 
 name: GRPO_env
 channels:
-  - conda-forge
   - pytorch
+  - nvidia
+  - conda-forge
   - defaults
 dependencies:
   - python=3.10   # stable version to use
   - pytorch   # backbone for building nerual networks
-  - numpy   # library for numerical operations
+  - pytorch-cuda=12.4 # available in anaconda.org on the pytorch channel
+  - numpy
   - tqdm    # sleek progress bar
   - gymnasium[toy_text]  # includes core gymnasium files and toy_text package (Blackjack included)
