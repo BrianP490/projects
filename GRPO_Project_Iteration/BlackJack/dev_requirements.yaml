@@ -1,3 +1,4 @@
+# For local dev
 # Make sure when creating the environment you have installed conda
 # conda env create -f req.yaml
 # Select install ikernel when popup appears when first activating the env
