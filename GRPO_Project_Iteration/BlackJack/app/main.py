@@ -8,7 +8,7 @@ agent = BlackJackAgent()    # Create agent instance
 # Dynamically create the path to the model's weights 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__)) # Get directory of current running file
 weights_file = os.path.join(BASE_DIR, "model_weights", "blackjack_policy_model.pth") # create the full path to the model weights
-agent.load_state_dict(torch.load(weights_file)) # Load the agent's model weights
+agent.load_state_dict(torch.load(weights_file, weights_only=True)) # Load the agent's model weights
 
 
 # User inputs
