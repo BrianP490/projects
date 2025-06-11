@@ -1,0 +1,6 @@
+# For streamlit
+tqdm=4.67.1
+pytorch=2.7.0
+numpy=2.2.6
+streamlit=1.45.1
+gymnasium[toy_text]>=0.29.1

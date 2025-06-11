@@ -1,0 +1,20 @@
+# For local dev
+# Make sure when creating the environment you have installed conda
+# conda env create -f req.yaml
+# Select install ikernel when popup appears when first activating the env
+# conda activate GRPO_env
+
+name: GRPO_env
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10   # stable version to use
+  - pytorch   # backbone for building nerual networks
+  - pytorch-cuda=12.4 # available in anaconda.org on the pytorch channel
+  - numpy
+  - tqdm    # sleek progress bar
+  - gymnasium[toy_text]  # includes core gymnasium files and toy_text package (Blackjack included)
+  - streamlit
